@@ -20,7 +20,7 @@ print("NumPy + Pandas")
 # print(np.sum(marks))
 
 
-# 2D array
+# 2D array (matrix)
 
 arr = np.array([
     [1, 2, 3],
