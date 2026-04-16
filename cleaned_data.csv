@@ -1,0 +1,14 @@
+name,age,marks,city,grade
+A,20,80,Mumbai,B
+B,21,70,Bangalore,A
+C,19,70,Chennai,C
+D,22,85,Pune,B
+E,20,60,Bangalore,C
+F,23,45,Chennai,Fail
+G,21,95,Hyderabad,A
+H,20,75,Bangalore,B
+Y,22,85,Pune,B
+E,20,60,Delhi,C
+F,23,95,Kerala,A
+I,24,70,Hyderabad,B
+J,22,50,Chennai,C
