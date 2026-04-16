@@ -3,6 +3,8 @@ print("Hello, World! I am learning AI - ML")
 print("This is my learning from day 1-7 (Week 1)")
 print("Starting with basics of Python, I have learned about variables, data types, input/output, loops, conditions, functions, dictionaries, file handling and a mini project on student marks analysis.")
 
+print("This is Python Learning 🐍😎")
+
 # ✅ Day 1: Python Basics
 # Variables → store values
 # Data types → int, float, str, bool
