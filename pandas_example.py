@@ -39,3 +39,33 @@ print(df)
 
 # df2 = pd.DataFrame(data2)
 # print(df2.iloc[0])
+
+# another example ofloc and iloc
+
+df = pd.DataFrame({
+    "name": ["A", "B", "C", "D"],
+    "marks": [80, 90, 70, 60],
+    "city": ["Hyd", "Chennai", "Hyd", "Mumbai"]
+})
+
+# loc (Label-based)
+df.loc[1]  # 1. Get one row
+df.loc[[0, 2]]  # 2. Get multiple rows
+df.loc[:, ["name", "marks"]]  # 3. Get specific columns
+df.loc[df["marks"] > 75]  # 4. Filter rows
+df.loc[df["marks"] > 75, ["name", "marks"]]  # 5. Filter + select columns
+df.loc[df["marks"] < 70, "grade"] = "Fail"  # 6. Update values
+df.loc[0:2]  # 7. Slice rows
+
+# .iloc (index-location-based or Position-based)
+df.iloc[1]  # 1. Get one row
+df.iloc[[0, 2]]  # 2. Get multiple rows
+df.iloc[:, [0, 1]]  # 3. Get specific columns
+df.iloc[1, 0]  # 4. Row + column
+df.iloc[0:2]  # 5. Slice rows
+
+# for df.index = ["a", "b", "c", "d"]
+# df.loc["a"]    # ✅ works
+# df.iloc[0]     # ✅ works
+# df.loc[0]      # ❌ error
+# df.iloc["a"]   # ❌ error
