@@ -3,7 +3,7 @@ import pandas as pd
 # ✅ Day 11: Reading CSV Files
 # CSV = Comma Separated Values
 
-df = pd.read_csv("data.csv")
+df = pd.read_csv("PythonBasics/CSVFiles/data.csv")
 print(df)  # prints all data
 print(df.head())  # first 5 rows
 print(df.tail())  # last rows

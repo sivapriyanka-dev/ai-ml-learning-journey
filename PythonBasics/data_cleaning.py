@@ -15,7 +15,7 @@
 
 
 import pandas as pd
-df = pd.read_csv("data2.csv")
+df = pd.read_csv("PythonBasics/CSVFiles/data2.csv")
 
 # # ✅ Step 1: Check Missing Values
 # print(df.isnull())  # Shows True/False for missing values
@@ -52,7 +52,7 @@ df = pd.read_csv("data2.csv")
 # Replace values (USE WHEN REQUIRED ✔️)
 
 
-df = pd.read_csv("data2.csv")
+df = pd.read_csv("PythonBasics/CSVFiles/data2.csv")
 
 # 1. Understand data
 print(df.info())
@@ -74,6 +74,6 @@ df = df.drop_duplicates()
 df["marks"] = df["marks"].astype(int)
 
 # 6. Save to new file for safe side
-df.to_csv("cleaned_data.csv", index=False)
+df.to_csv("PythonBasics/CSVFiles/cleaned_data.csv", index=False)
 
 print("CSV updated successfully!")

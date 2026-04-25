@@ -1,4 +1,4 @@
-brief ML-math recap
+# Brief ML-math recap
 
 This is a brief recap of the mathematical concepts that are commonly used in machine learning. It is not meant to be exhaustive, but rather to provide a quick reference for those who are already familiar with the basics.
 
@@ -14,7 +14,7 @@ in NumPy/Pandas:
 np.mean(arr)
 df["marks"].mean()
 
----------------------------------------------------------------------------------------------------------------------------------
+---
 
 ✅ 2. Median - Middle value after sorting.
 The median is the middle value of a sorted list of numbers. If the count of numbers is odd, the median is the value at the middle index. If the count is even, the median is the average of the two middle values.
@@ -26,7 +26,7 @@ If even count: [60,70,80,90] => median = (70+80)/2 = 75
 in NumPy:
 np.median(arr)
 
----------------------------------------------------------------------------------------------------------------------------------
+---
 
 ✅ 3. Variance - Measures spread of data.
 Variance is a measure of how much the values in a dataset vary from the mean. It is calculated by taking the average of the squared differences from the mean.
@@ -41,17 +41,17 @@ np.var(arr)
 
 This matters in ML for feature scaling.
 
----------------------------------------------------------------------------------------------------------------------------------
+---
 
 ✅ 4. Probability Basics - chance of something happening.
 
 P(Event) = TotalOutcomes / FavorableOutcomes​
 
-Example: 
+Example:
 Coin toss: P(Heads)=1/2
 Dice: P(rolling 4)=1/6
 
----------------------------------------------------------------------------------------------------------------------------------
+---
 
 ✅ 5. Linear Algebra
 Linear algebra is the branch of mathematics that deals with vectors, matrices, and linear transformations. It is fundamental to many machine learning algorithms, especially those involving high-dimensional data.
@@ -66,17 +66,18 @@ A = [[1,2],[3,4]]
 
 in NumPy => A = np.array([[1,2],[3,4]])
 
----------------------------------------------------------------------------------------------------------------------------------
+---
 
 ✅ 6. Gradient Idea - This comes in optimization
 The gradient is a vector that points in the direction of the greatest increase of a function. In machine learning, we often want to minimize a loss function, so we use the negative of the gradient to update our model parameters.
 
 Think:
+
 - You are on a hill
 - Want lowest point
 - Gradient tells which direction is uphill
 - Move opposite direction to minimize
-That’s gradient descent.
+  That’s gradient descent.
 
 Very simplified update rule:
 w new​=w old ​− η⋅gradient
@@ -89,7 +90,6 @@ in Python
 gradient = np.array([0.5, 0.2])
 learning_rate = 0.1
 w_old = np.array([1.0, 1.0])
-w_new = w_old - learning_rate * gradient
+w_new = w_old - learning_rate \* gradient
 
----------------------------------------------------------------------------------------------------------------------------------
-
+---
