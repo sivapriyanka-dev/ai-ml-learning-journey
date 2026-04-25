@@ -8,7 +8,7 @@
 # Step 1: Load Dataset
 import pandas as pd
 
-df = pd.read_csv("students.csv")
+df = pd.read_csv("PythonBasics/CSVFiles/students.csv")
 print(df.head())
 
 # Step 2: Basic Analysis
@@ -34,7 +34,7 @@ df["grade"] = df["marks"].apply(
 )
 print(df)
 # Save updated DataFrame for Grades to CSV
-# df.to_csv("students_updated.csv", index=False)
+# df.to_csv("PythonBasics/CSVFiles/students_updated.csv", index=False)
 
 # Step 7: Pass/Fail Count
 df["pass"] = df["marks"] >= 50
