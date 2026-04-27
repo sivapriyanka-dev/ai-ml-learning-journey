@@ -1,3 +1,7 @@
+# ✅ Day 16 — Linear Regression
+
+# y = mx + b
+
 import numpy as np
 from sklearn.linear_model import LinearRegression
 
