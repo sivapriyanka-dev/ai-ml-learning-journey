@@ -1,5 +1,5 @@
 # ✅ Day 16 — Linear Regression
-
+# It is Supervised Learning
 # y = mx + b
 
 import numpy as np
