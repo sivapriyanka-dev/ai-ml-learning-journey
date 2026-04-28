@@ -140,3 +140,69 @@ from sklearn.metrics import precision_score, recall_score
 
 print(precision_score(y_true,y_pred))
 print(recall_score(y_true,y_pred))
+
+# Easy memory trick for TP TN FP FN
+
+True = prediction was correct
+False = prediction was wrong
+Positive/Negative = what model predicted
+
+| Actual \ Predicted | Positive | Negative |
+| ------------------ | -------- | -------- |
+| Positive           | TP       | FN       |
+| Negative           | FP       | TN       |
+
+1. True Positive (TP) ✅ Model says positive, and reality is positive.
+   Correct positive prediction.
+   Predicted: Disease
+   Actual: Disease
+   Example: Doctor test says you have disease, and you really do.
+
+2. True Negative (TN) ✅ Model says negative, and reality is negative.
+   Correct negative prediction.
+   Predicted: No disease
+   Actual: No disease
+
+3. False Positive (FP) ❌ Model says positive wrongly. predicted positive wrongly
+   False alarm. Sometimes called Type I Error.
+   Predicted: Disease
+   Actual: No disease
+   Example: Test says you have disease, but you don’t.
+
+4. False Negative (FN) ❌ Model misses a real positive. predicted negative wrongly
+   Dangerous miss. Also called Type II Error.
+   Predicted: No disease
+   Actual: Disease
+   Example: Test says you're healthy, but you actually have disease.
+
+# ✅ Day 21 — Decision Trees - Rule-based categories
+
+# Second Classification Model: Decision Trees
+
+This model makes predictions using if-else style questions. Very human-like.
+Instead of fitting equations, it asks questions:
+
+Is hours studied > 5?
+Yes → Pass
+No → Fail
+That’s a tiny decision tree.
+
+           Hours > 5?
+            /     \
+          No      Yes
+         Fail   Attendance >80?
+                   /    \
+                 No     Yes
+               Fail    Pass
+
+🎯 Used For Classification:
+
+- Spam detection
+- Loan approval
+- Disease diagnosis
+  Can also do regression too.
+
+⚠️ But... Decision trees can overfit.
+If tree becomes too complex:
+memorizes data
+poor generalization

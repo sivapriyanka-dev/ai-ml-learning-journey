@@ -1,4 +1,4 @@
-# ✅ Day 16 — Linear Regression
+# ✅ Day 16 — Linear Regression - Predicts Numbers
 # It is Supervised Learning
 # y = mx + b
 

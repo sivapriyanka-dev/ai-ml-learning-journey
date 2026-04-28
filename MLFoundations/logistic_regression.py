@@ -1,4 +1,4 @@
-# It is Classification Model (predicting categories/classes).
+# It is Classification Model (predicting categories/classes) - Predicts Categories
 
 import numpy as np
 from sklearn.linear_model import LogisticRegression
