@@ -87,3 +87,75 @@ Creating Linear Regression Model in linear_regression_model.py
 using
 => import sklearn
 => from sklearn.linear_model import LinearRegression
+
+# ✅ Day 23 — Feature Engineering + Model Improvement
+
+👉 Feature = input variable. for example in this
+| Hours | Attendance | Marks |
+| ----- | ---------- | ----- |
+| 5 | 80 | 70 |
+
+Hours → feature
+Attendance → feature
+Marks → target
+
+Feature Engineering - Creating better input features to improve model
+
+Example
+Original: hours = [2,4,6]
+New feature: hours_squared = [4,16,36]
+👉 This helps model learn non-linear patterns
+
+Why? - Sometimes model can't learn pattern with raw data. Better features → better predictions.
+
+Feature Importance (Random Forest) - model.feature_importances - Shows which feature matters most.
+
+- Scaling - Different features have different ranges:
+
+| Feature | Range           |
+| ------- | --------------- |
+| Hours   | 1–10            |
+| Salary  | 10,000–1,00,000 |
+
+Big numbers dominate model 😬
+Solution: Scaling - Makes values comparable
+
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+small example where X alone fails But X² makes model succeed
+| X | y |
+| -2 | 1 |
+| -1 | 0 |
+| 1 | 0 |
+| 2 | 1 |
+👉 Pattern:
+Ends → 1
+Middle → 0
+This is a curve pattern, not a straight line.
+
+Try with ONLY X
+😬 What happens:
+Model tries to draw a straight line
+But your data is shaped like a U
+👉 Result: Poor accuracy (often ~0.5)
+
+Add X² feature
+now data looks like
+| X | X² | y |
+| -2 | 4 | 1 |
+| -1 | 1 | 0 |
+| 1 | 1 | 0 |
+| 2 | 4 | 1 |
+MAGIC Pattern:
+Now the pattern depends on X²
+Small X² → 0
+Large X² → 1
+👉 Result: Accuracy becomes 1.0
+
+Note: Instead of Feeding raw data blindly You Transform data into something the model can understand
+| Situation | Model |
+| ---------------- | ----------------------------------------- |
+| Straight pattern | Any model works |
+| Curved pattern | Need feature engineering OR complex model |
