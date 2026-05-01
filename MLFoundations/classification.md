@@ -206,3 +206,32 @@ That’s a tiny decision tree.
 If tree becomes too complex:
 memorizes data
 poor generalization
+
+# ✅ Day 22 — Random Forest 🌲🌲🌲 - ensemble model (many models together)
+
+Instead of relying on one decision tree (which can overfit), we use many trees and combine their results.
+🌳 Why "Forest"?
+One tree → may make mistakes
+Many trees → more reliable
+
+Think like voting:
+Tree 1 → Pass  
+Tree 2 → Pass  
+Tree 3 → Fail  
+Final → Pass (majority vote)
+
+Why Random Forest is Powerful.
+Because:
+Different trees learn different patterns
+Errors cancel out
+
+| Decision Tree   | Random Forest    |
+| --------------- | ---------------- |
+| Single tree     | Many trees       |
+| Overfits easily | Less overfitting |
+| Simple          | More accurate    |
+
+NOTE:
+Decision Tree → one opinion
+Random Forest → group decision
+👉 Group usually smarter
