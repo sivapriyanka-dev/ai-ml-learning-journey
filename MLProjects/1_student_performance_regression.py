@@ -43,3 +43,7 @@ model.fit(X_train, y_train)
 print(model.score(X_test, y_test))  # 0.689651008332339
 # What happens if we add more features?
 # It may improve performance if the relationship is non-linear, but with small data it can cause overfitting and reduce generalization. from 70% to 68% in this case. Always evaluate!
+
+# FYI for resolving warnings in console we need to do this: instead of plain - print(model.predict([[6, 80]]))
+# new_data = pd.DataFrame([[6, 80]], columns=["hours", "attendance"])
+# print(model.predict(new_data))
