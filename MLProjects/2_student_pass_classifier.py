@@ -30,3 +30,7 @@ print("Accuracy:", model.score(X_test, y_test))  # Accuracy: 0.5
 print(model.predict([[6, 80]]))  # Prediction (6,80): [ True]
 print(model.predict([[4, 60]]))  # Prediction (4,60): [False]
 print(model.predict([[9, 90]]))  # Prediction (9,90): [ True]
+
+# FYI for resolving warnings in console we need to do this: instead of plain - print(model.predict([[6, 80]]))
+# new_data = pd.DataFrame([[6, 80]], columns=["hours", "attendance"])
+# print(model.predict(new_data))

@@ -159,3 +159,101 @@ Note: Instead of Feeding raw data blindly You Transform data into something the 
 | ---------------- | ----------------------------------------- |
 | Straight pattern | Any model works |
 | Curved pattern | Need feature engineering OR complex model |
+
+# ✅ Day 24 — K-Nearest Neighbors (KNN) - KNN is distance-based
+
+KNN doesn’t think globally — it only looks locally. That’s why:
+It adapts well to patterns
+But struggles with large/high-dimensional data
+
+👉 1. It stores the entire dataset and, during prediction:
+Computes distance from the new point to all training points
+Picks the k closest points
+Uses:
+majority vote (classification)
+average (regression)
+
+👉 2. Distance matters
+Most people underestimate this.
+Common distance metric: Euclidean Distance
+Example:
+Train points: [2, 4, 6, 8]
+Predict: 5
+Closest k=2 points: 4 and 6
+Distance:
+|2 - 5| = 3
+|4 - 5| = 1
+|6 - 5| = 1
+|8 - 5| = 3
+
+👉 3. Why scaling is CRITICAL
+If features are on different scales So we use:
+Standardization
+Normalization
+Otherwise KNN becomes biased
+
+👉 4. Choosing K
+k = 1 → very noisy
+k = large → too smooth
+
+| k value | Behavior                 |
+| ------- | ------------------------ |
+| 1       | memorizes data (overfit) |
+| small   | flexible boundary        |
+| large   | generalizes more         |
+
+👉 5. Decision boundary intuition
+Imagine plotting points. KNN creates irregular boundaries, It adapts to data shape
+Unlike:
+Linear Regression → straight line
+KNN → curvy, data-driven boundary
+
+👉 6. Weighted KNN
+Not all neighbors should be equal. Closer points should matter more.
+Instead of: Vote = 1 each
+We use: Weight = 1 / distance
+Closer = higher influence
+In sklearn: KNeighborsClassifier(n_neighbors=3, weights='distance')
+
+👉 7. Limitations
+❌ Slow prediction - Needs to check ALL points
+❌ Memory heavy - Stores full dataset
+❌ Sensitive to noise
+❌ Curse of Dimensionality
+❌ As features increase:
+distances become meaningless
+all points look equally far
+
+# ✅ Day 26 — Support Vector Machine (SVM)
+
+SVM shows its power only when data is not linearly separable
+
+SVM is a powerful algorithm for classification and regression. It finds the best boundary (hyperplane) that separates classes.
+SVM tries to separate data using a boundary (line/plane)
+But not just any line, It chooses the best possible boundary with maximum margin
+
+Imagine two groups:
+Pass (1)
+Fail (0)
+SVM finds a line like: -------- boundary -------- that separates them with maximum distance from both sides
+
+Why It’s Powerful:
+Works well on small & medium datasets
+Can handle complex boundaries
+Strong theoretical foundation
+
+- SVM doesn’t just separate data
+  It maximizes the margin (distance) between classes (boundary) and nearest points. This makes it robust
+
+- Kernel
+  SVM can handle non-linear data using kernel trick
+
+1. Linear (simple line) - SVC(kernel="linear")
+2. RBF (default, powerful) - SVC(kernel="rbf") can draw curved boundaries - RBF (Radial Basis Function)
+3. Polynomial (for curves) - SVC(kernel="poly", degree=3)
+
+When to Use SVM
+Data is small/medium
+Clear separation exists
+Need strong accuracy
+Avoid when: Very large dataset (slow)
