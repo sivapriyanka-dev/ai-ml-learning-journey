@@ -55,3 +55,13 @@ Tuning
 NOT just model choice.
 
 # workflow is Train → Evaluate → Tune → Evaluate → Improve
+
+| Model               | Most Important Parameter |
+| ------------------- | ------------------------ |
+| Linear Regression   | alpha                    |
+| Logistic Regression | C                        |
+| Decision Tree       | max_depth                |
+| Random Forest       | n_estimators             |
+| SVM                 | C, gamma                 |
+| KNN                 | n_neighbors              |
+| Naive Bayes         | almost none              |

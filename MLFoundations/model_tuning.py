@@ -23,4 +23,4 @@ param_grid = {
 grid = GridSearchCV(Ridge(), param_grid, cv=3)
 grid.fit(X_train, y_train)
 
-print("Best alpha:", grid.best_params_)
+print("Best alpha:", grid.best_params_)  # {'alpha': 0.01}
