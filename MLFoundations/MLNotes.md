@@ -257,3 +257,28 @@ Data is small/medium
 Clear separation exists
 Need strong accuracy
 Avoid when: Very large dataset (slow)
+
+# ✅ Day 27 — Naive Bayes
+
+Uses probability to make predictions
+“Naive” - Assumes features are independent
+Instead of:
+drawing lines (SVM)
+neighbors (KNN)
+trees (Decision Tree)
+
+It asks: “What is the probability this belongs to each class?”
+
+Example (Simple) : Spam detection:
+Message: “Win money now”
+
+Model checks:
+Probability of this text being Spam
+Probability of being Not Spam
+
+👉 Chooses higher probability
+
+- Very strong in:
+  Text classification
+  Spam detection
+  Sentiment analysis
