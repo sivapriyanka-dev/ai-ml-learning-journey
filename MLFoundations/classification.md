@@ -84,6 +84,18 @@ Customer churn
 
 # ✅ Day 20 — Classification Evaluation
 
+.score() 👉 “Just give me final exam percentage”
+print(model.score(X_test, y_test))
+
+accuracy_score() 👉 “Show me answer sheet, then calculate marks”
+print(accuracy_score(y_test, y_pred))
+
+we also have
+accuracy_score(y_test, y_pred)
+precision_score(y_test, y_pred)
+recall_score(y_test, y_pred)
+confusion_matrix(y_test, y_pred)
+
 1️⃣ Accuracy
 Accuracy = Total Predictions / Correct Predictions
 ​
