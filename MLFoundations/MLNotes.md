@@ -99,7 +99,7 @@ Hours → feature
 Attendance → feature
 Marks → target
 
-Feature Engineering - Creating better input features to improve model
+Feature Engineering - Creating better input features to improve model. transforming raw data into a format ML models can learn from better.
 
 Example
 Original: hours = [2,4,6]
