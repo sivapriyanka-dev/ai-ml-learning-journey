@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import GridSearchCV
+from sklearn.model_selection import cross_val_score
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
@@ -12,7 +13,9 @@ from sklearn.metrics import (
     confusion_matrix,
     precision_score,
     recall_score,
-    classification_report
+    classification_report,
+    f1_score,
+    roc_auc_score
 )
 import joblib
 
@@ -61,7 +64,7 @@ numeric_features = [
 ]
 
 categorical_features = X.select_dtypes(
-    include=["object"]
+    include=["object", "string"]
 ).columns.tolist()
 
 print("Numerical Features:")
@@ -95,28 +98,47 @@ preprocessor = ColumnTransformer([
 # ======================================================
 pipeline = Pipeline([
     ("preprocessor", preprocessor),
-    ("model", LogisticRegression(max_iter=1000))
+    ("model", LogisticRegression(max_iter=1000, class_weight="balanced"))
 ])
+# STEP 10 — CROSS VALIDATION
+# ======================================================
+cv_scores = cross_val_score(
+    pipeline,
+    X,
+    y,
+    cv=5,
+    scoring="recall"
+)
 
-# STEP 10 — TRAIN TEST SPLIT
+print("\n================ CROSS VALIDATION RESULTS ================\n")
+
+print("Cross Validation Recall Scores:")
+print(cv_scores)
+
+print("\nAverage Recall:")
+print(cv_scores.mean())
+
+# STEP 11 — TRAIN TEST SPLIT
 # ======================================================
 X_train, X_test, y_train, y_test = train_test_split(
     X,
     y,
     test_size=0.2,
-    random_state=42
+    random_state=42,
+    stratify=y
 )
 
-# STEP 11 — TRAIN MODEL
+# STEP 12 — TRAIN MODEL
 # ======================================================
 pipeline.fit(X_train, y_train)
 print("\nModel Training Completed")
 
-# STEP 12 — PREDICTIONS
+# STEP 13 — PREDICTIONS
 # ======================================================
 y_pred = pipeline.predict(X_test)
+y_prob = pipeline.predict_proba(X_test)[:, 1]
 
-# STEP 13 — EVALUATION
+# STEP 14 — EVALUATION
 # ======================================================
 print("\n================ MODEL EVALUATION ================\n")
 
@@ -129,13 +151,19 @@ print(precision_score(y_test, y_pred))
 print("\nRecall:")
 print(recall_score(y_test, y_pred))
 
+print("\nF1 Score:")
+print(f1_score(y_test, y_pred))
+
+print("\nROC-AUC Score:")
+print(roc_auc_score(y_test, y_prob))
+
 print("\nConfusion Matrix:")
 print(confusion_matrix(y_test, y_pred))
 
 print("\nClassification Report:")
 print(classification_report(y_test, y_pred))
 
-# STEP 14 — HYPERPARAMETER TUNING
+# STEP 15 — HYPERPARAMETER TUNING
 # ======================================================
 param_grid = {
     "model__C": [0.01, 0.1, 1, 10, 100]
@@ -156,7 +184,7 @@ print(grid.best_params_)
 print("\nBest Cross Validation Recall:")
 print(grid.best_score_)
 
-# STEP 15 — BEST MODEL EVALUATION
+# STEP 16 — BEST MODEL EVALUATION
 # ======================================================
 best_model = grid.best_estimator_
 best_predictions = best_model.predict(X_test)
@@ -174,12 +202,12 @@ print(recall_score(y_test, best_predictions))
 print("\nConfusion Matrix:")
 print(confusion_matrix(y_test, best_predictions))
 
-# STEP 16 — SAVE FULL PIPELINE
+# STEP 17 — SAVE FULL PIPELINE
 # ======================================================
 joblib.dump(best_model, "churn_pipeline.pkl")
 print("\nPipeline Saved Successfully")
 
-# STEP 17 — TEST WITH NEW CUSTOMER
+# STEP 18 — TEST WITH NEW CUSTOMER
 # ======================================================
 new_customer = pd.DataFrame({
     "Gender": ["Female"],
