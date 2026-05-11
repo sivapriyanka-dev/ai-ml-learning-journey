@@ -81,3 +81,16 @@ Machine sees - text → numbers → prediction
 For Code
 pip install nltk scikit-learn pandas
 NLTK (Natural Language Toolkit)
+
+# MultinomialNB = Multinomial Naive Bayes
+
+It’s a machine learning algorithm mainly used for text classification. Based on probability (Bayes theorem).
+Multinomial Naive Bayes is a probabilistic classification algorithm commonly used for NLP tasks. It works well with text features like word counts or TF-IDF and predicts classes based on probability
+
+Examples:
+Spam detection
+Sentiment analysis
+News classification
+Document categorization
+
+TF-IDF gives words → MultinomialNB classifies them
