@@ -223,3 +223,9 @@ Transformers → LLMs / modern NLP
 For Cats vs Dogs: CNN
 For customer churn: ANN
 For ChatGPT: Transformer
+
+Forward pass → make prediction
+Loss → measure mistake
+Backpropagation → send error backward
+Optimizer → fix weights
+Repeat → learning happens
