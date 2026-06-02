@@ -226,3 +226,41 @@ LangGraph
 CrewAI
 AutoGen
 OpenAI Agents
+
+# Week 2 — LangGraph Fundamentals
+
+What is LangGraph?
+
+Think of it as:
+
+React → Frontend Apps
+PyTorch → Deep Learning
+LangGraph → AI Agents
+
+Most companies building agents today use:
+
+LangGraph
+LangChain
+OpenAI Agents SDK
+
+And LangGraph is becoming the industry standard.
+
+Day 1 — Nodes and Edges
+Traditional Program
+Start
+↓
+Function A
+↓
+Function B
+↓
+End
+LangGraph
+Node A
+↓
+Node B
+↓
+Node C
+
+Each node performs a task.
+
+Edges connect nodes.
