@@ -264,3 +264,66 @@ Node C
 Each node performs a task.
 
 Edges connect nodes.
+
+# Message State & Memory
+
+Understand why agents need memory.
+
+Without memory:
+User: My name is Priyanka
+User: What is my name?
+Agent:
+I don't know.
+With memory:
+User: My name is Priyanka
+User: What is my name?
+Agent:
+Your name is Priyanka.
+
+# Tool Executor Node
+
+So far you have:
+
+User
+↓
+LLM Node
+↓
+Answer
+
+Today:
+
+User
+↓
+Router
+↓
+Tool Executor
+↓
+Answer
+
+This is the core pattern used by:
+
+LangGraph
+OpenAI Agents
+CrewAI
+MCP Servers
+
+Why Tool Executor?
+
+Instead of:
+
+if tool == "calculator":
+...
+if tool == "search":
+...
+if tool == "year":
+...
+
+Create a registry:
+
+tools = {
+"calculator": calculator,
+"search": search,
+"year": year
+}
+
+Now any tool can be executed dynamically.
