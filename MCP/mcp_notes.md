@@ -118,3 +118,11 @@ Weather MCP Server
 Weather Tool
 ↓
 Result
+
+# MCP:
+
+1. Receives the request from the AI client (Claude).
+2. Translates the request into a standardized format.
+3. Routes the request to the appropriate tool (Weather Tool).
+4. Executes the tool and retrieves the result.
+5. Sends the result back to the AI client (Claude).
