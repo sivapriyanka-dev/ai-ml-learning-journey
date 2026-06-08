@@ -327,3 +327,60 @@ tools = {
 }
 
 Now any tool can be executed dynamically.
+
+# Agent Loop
+
+What is an Agent Loop?
+
+Until now:
+
+Question
+↓
+Tool
+↓
+Answer
+
+One action only.
+
+Real agents do:
+
+Question
+↓
+Think
+↓
+Tool
+↓
+Observe
+↓
+Think Again
+↓
+Tool
+↓
+Observe
+↓
+Final Answer
+
+This is called the Reason → Act → Observe Loop.
+
+# What is a Multi-Agent System?
+
+Single Agent:
+
+User
+↓
+Agent
+↓
+Answer
+
+Multi-Agent:
+
+User
+↓
+Supervisor
+↓
+┌─────────┬─────────┐
+↓ ↓ ↓
+Research Writer Reviewer
+Agent Agent Agent
+
+Each agent has one responsibility.
